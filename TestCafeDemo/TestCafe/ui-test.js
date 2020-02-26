@@ -1,16 +1,16 @@
-﻿//.tc01 
+﻿//.tc01
 import { Selector } from 'testcafe';
 const dataSet = require('./data.json');
 fixture`Getting started fixture`
     .page`https://localhost:44374/`;
 
-est('Registration Fixture', async t => {
-    awtait t
-        .typeText('#frmName', 'don')
-        .typeText('#frmEmail', 'donw@devexpress.com')
+test('Registration Fixture', async t => {
+    await t
+		.typeText('#frmName', 'don')
+     .typeText('#frmEmail', 'donw@devexpress.com')
         .click('#register')
-
-        .expect(Selector('#response').textContent).eql("Thank you John you will receive an email at donw@devexpress.com");
+     
+           .expect(Selector('#response').textContent).eql("Thank you don you will receive an email at donw@devexpress.com");
 });
 
 dataSet.forEach(data => {
@@ -21,5 +21,5 @@ dataSet.forEach(data => {
             .click('#register')
 
             .expect(Selector('#response').textContent).eql(data.resultText);
-        });
+    });
 });
